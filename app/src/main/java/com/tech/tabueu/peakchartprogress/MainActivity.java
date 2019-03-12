@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-       FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+       FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.chart);
         int fab_id = R.id.fab;
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,96 +38,26 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, ChartActivity.class));
             }
         });
-        //build a graphic view data plot
-      /* GraphView graph = (GraphView) findViewById(R.id.graph);
-        LineGraphSeries<DataPoint> series0 = new LineGraphSeries<>(new DataPoint[] {
-                new DataPoint(0, 1),
-                new DataPoint(1, 5),
-                new DataPoint(2, 3),
-                new DataPoint(3, 2),
-                new DataPoint(4, 6)
-        });
-        graph.addSeries(series0);*/
 
-        //build chart bar
-     /*   GraphView graph3 = (GraphView) findViewById(R.id.graph3);
-        BarGraphSeries<DataPoint> series_3 = new BarGraphSeries<>(new DataPoint[] {
-                new DataPoint(0, -1),
-                new DataPoint(1, 5),
-                new DataPoint(2, 3),
-                new DataPoint(3, 2),
-                new DataPoint(4, 6)
-        });
-        graph.addSeries(series_3);
-
-// styling
-        series_3.setValueDependentColor(new ValueDependentColor<DataPoint>() {
+        FloatingActionButton line = (FloatingActionButton) findViewById(R.id.line);
+        line.setOnClickListener(new View.OnClickListener() {
             @Override
-            public int get(DataPoint data) {
-                return Color.rgb((int) data.getX()*255/4, (int) Math.abs(data.getY()*255/6), 100);
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, LineActivity.class));
             }
         });
 
-        series_3.setSpacing(50);
 
-// draw values on top
-        series_3.setDrawValuesOnTop(true);
-        series_3.setValuesOnTopColor(Color.RED);
-//series3.setValuesOnTopSize(50);*/
-
-
-        //build points graphs
-
-        GraphView graph4 = (GraphView) findViewById(R.id.graph4);
-        PointsGraphSeries<DataPoint> series = new PointsGraphSeries<>(new DataPoint[] {
-                new DataPoint(0, -2),
-                new DataPoint(1, 5),
-                new DataPoint(2, 3),
-                new DataPoint(3, 2),
-                new DataPoint(4, 6)
-        });
-        graph4.addSeries(series);
-        series.setShape(PointsGraphSeries.Shape.POINT);
-
-        PointsGraphSeries<DataPoint> series2 = new PointsGraphSeries<DataPoint>(new DataPoint[] {
-                new DataPoint(0, -1),
-                new DataPoint(1, 4),
-                new DataPoint(2, 2),
-                new DataPoint(3, 1),
-                new DataPoint(4, 5)
-        });
-        graph4.addSeries(series2);
-        series2.setShape(PointsGraphSeries.Shape.RECTANGLE);
-        series2.setColor(Color.RED);
-
-        PointsGraphSeries<DataPoint> series3 = new PointsGraphSeries<>(new DataPoint[] {
-                new DataPoint(0, 0),
-                new DataPoint(1, 3),
-                new DataPoint(2, 1),
-                new DataPoint(3, 0),
-                new DataPoint(4, 4)
-        });
-        graph4.addSeries(series3);
-        series3.setShape(PointsGraphSeries.Shape.TRIANGLE);
-        series3.setColor(Color.YELLOW);
-
-        PointsGraphSeries<DataPoint> series4 = new PointsGraphSeries<>(new DataPoint[] {
-                new DataPoint(0, 1),
-                new DataPoint(1, 2),
-                new DataPoint(2, 0),
-                new DataPoint(3, -1),
-                new DataPoint(4, 3)
-        });
-        graph4.addSeries(series4);
-        series4.setColor(Color.GREEN);
-        series4.setCustomShape(new PointsGraphSeries.CustomShape() {
+        FloatingActionButton point = (FloatingActionButton) findViewById(R.id.point);
+        point.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void draw(Canvas canvas, Paint paint, float x, float y, DataPointInterface dataPoint) {
-                paint.setStrokeWidth(10);
-                canvas.drawLine(x-20, y-20, x+20, y+20, paint);
-                canvas.drawLine(x+20, y-20, x-20, y+20, paint);
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, PointActivity.class));
             }
         });
+
+
+
     }
 
     @Override
